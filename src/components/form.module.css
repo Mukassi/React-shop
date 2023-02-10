@@ -1,0 +1,82 @@
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.35);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  transition: 0.5s;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  height: 500px;
+  width: 400px;
+  padding: 10px;
+  background-color: #e9eff6;
+  border: 2px solid #e9eff6;
+  transition: 0.5s;
+  text-align: center;
+  font-family: serif;
+  font-size: 22px;
+}
+.modalClose {
+  position: relative;
+  left: 45%;
+  /* left: 90%; */
+  font-size: 30px;
+  color: #fc0b0b;
+  opacity: 0.5;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+}
+.formContainer {
+  width: 400px;
+  padding: 40px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ddd;
+  margin: auto;
+  text-align: center;
+  color: #333;
+}
+
+.formContainer h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.formContainer input[type="text"],
+.formContainer input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.formButtons {
+  width: 48%;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #33c0ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formButtons :hover {
+  background-color: #00b0e6;
+}
