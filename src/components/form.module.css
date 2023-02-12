@@ -1,7 +1,11 @@
-
 .modal {
   background-color: rgba(0, 0, 0, 0.35);
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   position: fixed;
+  z-index: 1;
   height: 100%;
   width: 100%;
   display: flex;
@@ -9,54 +13,66 @@
   align-items: center;
   justify-content: center;
   flex-direction: row-reverse;
+  font-family: "Wensley";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: -0.04em;
 }
 .modalContent {
   display: flex;
+  width: 400px;
+  height: 400px;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
-  height: 500px;
-  width: 400px;
-  padding: 10px;
-  background-color: #e9eff6;
-  border: 2px solid #e9eff6;
+  background-color: #eaeaea;
+  border: 2px solid #eaeaea;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   transition: 0.5s;
-  text-align: center;
   font-family: serif;
   font-size: 22px;
 }
 .modalClose {
   position: relative;
-  left: 45%;
+  top: 60px;
+  left: 50%;
   /* left: 90%; */
-  font-size: 30px;
+  font-size: 90px;
   color: #fc0b0b;
   opacity: 0.5;
   font-weight: 700;
   border: none;
   background-color: transparent;
 }
-.formContainer {
-  width: 400px;
-  padding: 40px;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ddd;
-  margin: auto;
+.cartButtons {
+  margin: 10px 0;
+  font-family: "Wensley";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.04em;
+  color: #000000;
+  opacity: 0.8;
+  padding: 4px;
+  border: 2px solid #afacac;
+  background-color: rgba(255, 255, 255, 0);
   text-align: center;
-  color: #333;
+  transition: 0.5s;
+}
+.cartButtons:hover {
+  color: #ffffff;
+  background: #000000;
+  border: 2px solid #000000;
+  opacity: 0.3;
+}
+.cartButtons:active{
+  opacity: 1;
 }
 
-.formContainer h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.formContainer input[type="text"],
-.formContainer input[type="password"] {
-  width: 100%;
+.modalContent input[type="text"],
+.modalContent input[type="password"] {
+  width: 80%;
   padding: 10px;
   font-size: 18px;
   margin-bottom: 20px;
@@ -66,17 +82,29 @@
   color: #333;
 }
 
-.formButtons {
-  width: 48%;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #33c0ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.modalButtons {
+  margin: 10px 0;
+  font-family: "Wensley";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.04em;
+  color: #000000;
+  opacity: 0.8;
+  padding: 4px;
+  border: 2px solid #afacac;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  transition: 0.5s;
 }
 
-.formButtons :hover {
-  background-color: #00b0e6;
+.modalButtons:hover {
+  color: #ffffff;
+  background: #000000;
+  border: 2px solid #000000;
+  opacity: 0.3;
+}
+.modalButtons:active{
+  opacity: 1;
 }

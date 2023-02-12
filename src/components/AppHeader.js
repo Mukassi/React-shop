@@ -2,23 +2,41 @@ import { useState, useContext } from "react";
 import { CartContext } from "../hok/CartProvider";
 import { NavLink, Outlet } from "react-router-dom";
 import LogInModal from "./LogInModal";
-import "./AppHeader.css"
+import "./AppHeader.css";
 const AppHeader = () => {
   const [logInModal, setLogInModal] = useState(false);
-  const {totalPrice, productsCount} = useContext(CartContext)
+  const { totalPrice, productsCount } = useContext(CartContext);
   const onCloseModal = () => {
-    setLogInModal(false)
-  }
+    setLogInModal(false);
+  };
   return (
     <>
       <div className="App-header">
-        <NavLink to="/">Главная</NavLink>
-        <NavLink to="/aboutus">О магазине</NavLink>
-        <NavLink to="/shoppingcart">Корзина В корзине {productsCount} товаров на сумму {totalPrice}</NavLink>
-        <button onClick={() => setLogInModal(true)}>LogIn</button>
+        <div className="logo">LOGO</div>
+        <div className="links">
+        <NavLink to="/" className="navlink">
+          Home
+        </NavLink>
+        <NavLink to="/aboutus" className="navlink">
+          About
+        </NavLink>
+        <div >        <span className="cart">In cart {productsCount} for {totalPrice}$ </span>
+
+          <NavLink to="/shoppingcart" className="navlink">
+            Cart
+          </NavLink>
+
+
+        </div>
+        <div>
+          <button onClick={() => setLogInModal(true)} className="login">
+            LogIn
+          </button>
+        </div>
+        </div>
       </div>
-      <div>
-        {logInModal ? <LogInModal onCloseModal={onCloseModal}/> : null}
+      <div className="container">
+        {logInModal ? <LogInModal onCloseModal={onCloseModal} /> : null}
         <Outlet />
       </div>
     </>

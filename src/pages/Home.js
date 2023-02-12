@@ -1,14 +1,12 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartButtons from "../components/CartButtons";
 import styles from "./pages.module.css";
 import useProductService from "../services/ProductService";
 
-
 const Home = () => {
   const [products, setProducts] = useState([]);
   const { getAllProducts } = useProductService();
-
 
   useEffect(() => {
     getAllProducts().then(getNewProducts);
@@ -25,11 +23,13 @@ const Home = () => {
       return (
         <li key={id}>
           <img src={images[0]} alt={title} className={styles.productImg} />
-          <Link to={`/products/${id}`} className={styles.productName}>
-            {title}
-          </Link>
-          <p>Price: {price}$</p>
-          <CartButtons count='1' price={price}/>
+          <div className={styles.productGrid}>
+            <Link to={`/products/${id}`} className={styles.productName}>
+              {title}
+            </Link>
+            <p className={styles.productPrice}>Price: {price}$</p>
+            <div className={styles.productBtn}><CartButtons count="1" price={price} /></div>
+          </div>
         </li>
       );
     });

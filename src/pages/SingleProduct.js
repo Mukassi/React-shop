@@ -32,13 +32,14 @@ const View = ({ product }) => {
     <div className={styles.singleProduct}>
       <img src={images[0]} alt={title} className={styles.singleProductImg}/>
       <div>
-        <h2 className={styles.singleProductName}>{title}</h2>
+        <h1 className={styles.singleProductName}>{title}</h1>
         <p className={styles.singleProductDesc}>{description}</p>
         <div className={styles.singleProductPrice}>{price}$</div>
+        <CartButtons count="1" price={price}/>
       </div>
 
     </div>
-    <CartButtons count="1" price={price}/>
+
     </>
   );
 };
