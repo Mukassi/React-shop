@@ -1,6 +1,6 @@
-.App-header {
+.app-header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
   position: fixed;
 
   width: 100%;
@@ -11,26 +11,22 @@
 }
 .logo {
   display: block;
-  padding: 0 150px;
+  padding: 0 10%;
   font-size: 90px;
   letter-spacing: -0.3em;
-  color:#000000
+  color: #000000;
 }
-.links{
+.links {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 0px 150px;
+  padding: 0px 10%;
   gap: 40px;
-
-
-
 }
 .navlink {
-
   display: flex;
   flex-direction: column;
-
+  min-width: max-content;
   align-items: center;
   margin: 10px 0;
   text-decoration: none;
@@ -52,7 +48,7 @@
   max-width: 100px;
   height: 30px;
   padding: 4px;
- position: relative;
+  position: relative;
   background-clip: padding-box;
   border: 3px solid #000000;
   border-radius: 100px;
@@ -66,7 +62,6 @@
   pointer-events: none;
 }
 
-
 .active {
   padding: 7px 16px;
 
@@ -74,10 +69,8 @@
   background: #000000;
   border-radius: 2px;
   opacity: 1;
-
 }
 .container {
-  
   max-width: 90%;
   margin: 150px;
 }
@@ -96,22 +89,21 @@
   letter-spacing: -0.04em;
   color: #000000;
   opacity: 0.8;
-  
+
   width: 100px;
   padding: 8px;
   border: 2px solid #afacac;
-  background-color:rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
   border-radius: 20px;
   text-align: center;
 
-
   transition: 0.5s;
 }
-.login:hover{
+.login:hover {
   color: #ffffff;
   background: #000000;
   border: 2px solid #000000;
-  opacity: .3;
+  opacity: 0.3;
 }
 .login:active {
   opacity: 1;

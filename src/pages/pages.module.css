@@ -1,6 +1,11 @@
 li {
   list-style-type: none;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .products {
   margin-top: 5%;
   display: grid;
@@ -16,15 +21,15 @@ li {
 .productGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "name name"
-  "price btn";
-
+  grid-template-areas:
+    "name name"
+    "price btn";
 }
 .productName {
   grid-area: name;
   margin-top: 10px;
   text-decoration: none;
-  color:black;
+  color: black;
   opacity: 0.8;
   font-weight: bold;
   font-size: 24px;
@@ -32,59 +37,44 @@ li {
   transition: 0.3s;
 }
 .productName:hover {
-  padding: 7px 16px;
+  padding: 16px;
   opacity: 1;
 }
 .productPrice {
   grid-area: price;
-  font-size: 20px; 
-}
-.productBtn{
-  grid-area: btn;
-}
-.singleProduct {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
   font-size: 20px;
 }
-.singleProductImg {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  width: 640px;
-  height: 480px;
+.productBtn {
+  grid-area: btn;
 }
 
-.singleProductName {
-  font-weight: bold;
-
-  line-height: 29px;
-}
-.singleProductDescr {
-  font-size: 18px;
-  line-height: 24px;
-  margin-top: 25px;
-}
-.singleProductPrice {
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 32px;
-
-  margin-top: 25px;
-}
-.singleProductBack {
-  justify-self: end;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 24px;
-}
-.aboutContainer{
+.aboutContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   text-align: center;
   font-size: 20px;
 }
-.aboutImg{
-    max-width: 650px;
-    max-height: 700px;
+.aboutImg {
+  max-width: 650px;
+  max-height: 700px;
+}
+
+.homeLink {
+  text-decoration: none;
+  color: black;
+  opacity: 0.8;
+}
+.page404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  text-decoration: none;
+  color: black;
+  opacity: 0.8;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 18px;
+  transition: 0.3s;
 }

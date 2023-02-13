@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import CartButtons from "../components/CartButtons";
+import ErrorModal from "../components/ErrorModal";
 import useProductService from "../services/ProductService";
-import styles from "./pages.module.css";
+import View from "../components/ViewProduct";
 
 const SingleProduct = () => {
   const [product, setProduct] = useState(null);
-  const { getOneProduct } = useProductService();
+
+  const { getOneProduct, error, clearError } = useProductService();
   const { productId } = useParams();
 
   useEffect(() => {
@@ -20,27 +21,17 @@ const SingleProduct = () => {
   const onProductLoaded = (newProduct) => {
     setProduct(newProduct);
   };
-
+  const showErrorModal = () => {
+    setTimeout(() => clearError(), 15000);
+    return <ErrorModal error={error} clearError={clearError} />;
+  };
   const content = product ? <View product={product} /> : null;
-  return <>{content}</>;
-};
-
-const View = ({ product }) => {
-  let { title, price, images, description } = product;
   return (
     <>
-    <div className={styles.singleProduct}>
-      <img src={images[0]} alt={title} className={styles.singleProductImg}/>
-      <div>
-        <h1 className={styles.singleProductName}>{title}</h1>
-        <p className={styles.singleProductDesc}>{description}</p>
-        <div className={styles.singleProductPrice}>{price}$</div>
-        <CartButtons count="1" price={price}/>
-      </div>
-
-    </div>
-
+      {error ? showErrorModal() : null}
+      {content}
     </>
   );
 };
+
 export default SingleProduct;
