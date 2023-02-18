@@ -4,7 +4,7 @@ import styles from "./components.module.css";
 import Counter from "./Counter";
 import CartButtons from "./CartButtons";
 
-const View = ({ product }) => {
+const ViewSingleProduct = ({ product }) => {
   let { title, price, images, description } = product;
   const [count, setCount] = useState(1);
   const { isLoggedIn } = useContext(LoginContext);
@@ -32,4 +32,4 @@ const View = ({ product }) => {
   );
 };
 
-export default View;
+export default ViewSingleProduct;

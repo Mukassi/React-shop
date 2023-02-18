@@ -47,7 +47,7 @@ const LogInModal = ({ onCloseModal }) => {
         <label htmlFor="pass">Пароль</label>
         <input
           id="pass"
-          type="text"
+          type="password"
           placeholder="*******"
           name="pass"
           value={credentials.pass}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ErrorModal from "../components/ErrorModal";
 import useProductService from "../services/ProductService";
-import View from "../components/ViewProduct";
+import ViewSingleProduct from "../components/ViewSingleProduct";
 
 const SingleProduct = () => {
   const [product, setProduct] = useState(null);
@@ -11,25 +11,13 @@ const SingleProduct = () => {
   const { productId } = useParams();
 
   useEffect(() => {
-    updateProduct();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getOneProduct(productId).then(setProduct)
   }, [productId]);
 
-  const updateProduct = () => {
-    getOneProduct(productId).then(onProductLoaded);
-  };
-  const onProductLoaded = (newProduct) => {
-    setProduct(newProduct);
-  };
-  const showErrorModal = () => {
-    setTimeout(() => clearError(), 15000);
-    return <ErrorModal error={error} clearError={clearError} />;
-  };
-  const content = product ? <View product={product} /> : null;
   return (
     <>
-      {error ? showErrorModal() : null}
-      {content}
+      {error ? <ErrorModal error={error} clearError={clearError} /> : null}
+      {product ? <ViewSingleProduct product={product} /> : null}
     </>
   );
 };

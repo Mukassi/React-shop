@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
 
   const updateCart = (productsCount, price) => {
     setProductsCount((prevState) => prevState + productsCount);
-    setTotalPrice((prevState) => prevState + price);
+    setTotalPrice((prevState) => prevState + price * productsCount);
   };
 
   return (

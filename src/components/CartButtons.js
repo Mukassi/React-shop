@@ -9,7 +9,7 @@ const CartButtons = (props) => {
   const { updateCart } = useContext(CartContext);
   return (
     <button
-      onClick={() => updateCart(+count, price)}
+      onClick={() => updateCart(+count, +price)}
       disabled={!isLoggedIn}
       className={styles.cartButtons}
     >
