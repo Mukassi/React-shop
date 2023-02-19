@@ -1,10 +1,10 @@
 import styles from "./components.module.css";
-const Counter = ({ count, onChangeCount }) => {
+const Counter = ({ count, onChangeCount, id }) => {
   return (
     <div>
       <button
         className={styles.minus}
-        onClick={() => onChangeCount(-1)}
+        onClick={() => onChangeCount(-1, id)}
       ></button>
       <input
         type="number"
@@ -12,7 +12,10 @@ const Counter = ({ count, onChangeCount }) => {
         className={styles.inputCounter}
         readOnly
       ></input>
-      <button className={styles.plus} onClick={() => onChangeCount(1)}></button>
+      <button
+        className={styles.plus}
+        onClick={() => onChangeCount(1, id)}
+      ></button>
     </div>
   );
 };

@@ -1,19 +1,26 @@
-import { useContext } from "react";
-import { CartContext } from "../hok/CartProvider";
-import { LoginContext } from "../hok/LoginProvider";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 import styles from "./components.module.css";
 
 const CartButtons = (props) => {
-  const { count, price } = props;
-  const { isLoggedIn } = useContext(LoginContext);
-  const { updateCart } = useContext(CartContext);
+  const { count, product } = props;
+
+  const dispatch = useDispatch();
+  const { loginStatus } = useSelector((state) => state.login);
+
+  const onAddToCart = (count, product) => {
+    for (let i = 0; i < +count; i++) {
+      dispatch(addToCart(product));
+    }
+  };
+
   return (
     <button
-      onClick={() => updateCart(+count, +price)}
-      disabled={!isLoggedIn}
+      onClick={() => onAddToCart(count, product)}
+      disabled={!loginStatus}
       className={styles.cartButtons}
     >
-      {isLoggedIn ? "Купить" : "Чтобы добавить товар в корзину залогинтесь"}
+      {loginStatus ? "Купить" : "Чтобы добавить товар в корзину залогинтесь"}
     </button>
   );
 };

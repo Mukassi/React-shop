@@ -1,24 +1,20 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ErrorModal from "../components/ErrorModal";
-import useProductService from "../services/ProductService";
+import ErrorModal from "../components/ErrorModal/ErrorModal";
+import { useSelector } from "react-redux";
 import ViewSingleProduct from "../components/ViewSingleProduct";
+import { Spinner } from "../components/Spinner/Spinner";
 
 const SingleProduct = () => {
-  const [product, setProduct] = useState(null);
-
-  const { getOneProduct, error, clearError } = useProductService();
+  const { productsStatus } = useSelector((state) => state.products);
   const { productId } = useParams();
+  const { products } = useSelector((state) => state.products);
+  const singleProduct = products.find((element) => element.id === +productId);
 
-  useEffect(() => {
-    getOneProduct(productId).then(setProduct)
-  }, [productId]);
-
+  if (productsStatus === "loading") return <Spinner />;
+  if (productsStatus === "error")
+    return <ErrorModal error="Ошибка при загурзе данного товара" />;
   return (
-    <>
-      {error ? <ErrorModal error={error} clearError={clearError} /> : null}
-      {product ? <ViewSingleProduct product={product} /> : null}
-    </>
+    <>{singleProduct ? <ViewSingleProduct product={singleProduct} /> : null}</>
   );
 };
 

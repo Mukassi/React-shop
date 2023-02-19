@@ -1,0 +1,25 @@
+.errorModal {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: rgba(255, 0, 0, 0.75);
+  display: flex;
+  justify-content: flex-start;
+  width: 700px;
+  height: 150px;
+  hyphens: auto;
+  background-color: #ffffff;
+  border: 2px solid rgb(226, 154, 154);
+  font-size: 20px;
+}
+.errorClose {
+  position: relative;
+  left: 93%;
+  bottom: 40%;
+  font-size: 50px;
+  color: #fc0b0b;
+  opacity: 0.7;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+}

@@ -1,15 +1,15 @@
-import { useState, useContext } from "react";
-import { CartContext } from "../hok/CartProvider";
-import { LoginContext } from "../hok/LoginProvider";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
 import "./AppHeader.css";
+import cartIcon from "../images/cart.svg"
 import LogInModal from "./LogInModal";
 import LoginButtons from "./LoginButtons";
 
 const AppHeader = () => {
   const [logInModal, setLogInModal] = useState(false);
-  const { totalPrice, productsCount } = useContext(CartContext);
-  const { isLoggedIn } = useContext(LoginContext);
+  const { totalPrice, totalCount } = useSelector((state) => state.cart);
+  const { loginStatus } = useSelector((state) => state.login);
   const onCloseModal = () => {
     setLogInModal(false);
   };
@@ -24,13 +24,14 @@ const AppHeader = () => {
           <NavLink to="/aboutus" className="navlink">
             О Магазине
           </NavLink>
-          {isLoggedIn ? (
+          {loginStatus ? (
             <div>
               <span className="cart">
-                В корзине {productsCount} товаров на сумму {totalPrice}$
+                В корзине {totalCount} товаров на сумму {totalPrice}$
               </span>
               <NavLink to="/shoppingcart" className="navlink">
                 Корзина
+                <img src={cartIcon} alt="cartIcon" className="cartIcon"/>
               </NavLink>
             </div>
           ) : null}

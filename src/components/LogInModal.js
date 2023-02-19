@@ -1,12 +1,15 @@
-import { useState, useContext } from "react";
-import { LoginContext } from "../hok/LoginProvider";
+import { useState } from "react";
+
+import { useDispatch } from "react-redux";
+import { changeLoginStatus } from "../store/loginSlice";
 import { users } from "../services/users";
 import styles from "./components.module.css";
 
 const LogInModal = ({ onCloseModal }) => {
   const [credentials, setCredentials] = useState({ login: "", pass: "" });
   const [isValid, setIsValid] = useState(true);
-  const { changeLoginStatus } = useContext(LoginContext);
+  const dispatch = useDispatch();
+
   const onInputChange = (e) => {
     let { name, value } = e.target;
     setCredentials((prevValue) => {
@@ -20,10 +23,10 @@ const LogInModal = ({ onCloseModal }) => {
         user.login === credentials.login && user.pass === credentials.pass
     );
     if (user) {
-      changeLoginStatus(true);
+      dispatch(changeLoginStatus(true));
       onCloseModal();
     } else {
-      changeLoginStatus(false);
+      dispatch(changeLoginStatus(false));
       setIsValid(false);
     }
   };

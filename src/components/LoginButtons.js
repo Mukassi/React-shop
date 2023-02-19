@@ -1,18 +1,21 @@
-import { useContext } from "react";
-import { LoginContext } from "../hok/LoginProvider";
+import { useSelector, useDispatch } from "react-redux";
+import { changeLoginStatus } from "../store/loginSlice";
 import styles from "./components.module.css";
 
 const LoginButtons = (props) => {
-  const { isLoggedIn, changeLoginStatus } = useContext(LoginContext);
+  const { loginStatus } = useSelector((state) => state.login);
+  const dispatch = useDispatch();
   return (
     <div>
       <button
         onClick={() =>
-          isLoggedIn ? changeLoginStatus(false) : props.setLogInModal(true)
+          loginStatus
+            ? dispatch(changeLoginStatus(false))
+            : props.setLogInModal(true)
         }
         className={styles.login}
       >
-        {isLoggedIn ? "Выход" : "Войти"}
+        {loginStatus ? "Выход" : "Войти"}
       </button>
     </div>
   );

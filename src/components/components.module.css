@@ -145,7 +145,7 @@ li {
 }
 .navlink {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-width: max-content;
   align-items: center;
   margin: 10px 0;
@@ -160,6 +160,7 @@ li {
   opacity: 0.8;
   transition: 0.5s;
 }
+
 .cart {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -219,6 +220,7 @@ li {
   transition: 0.5s;
 }
 .login:hover {
+  cursor: pointer;
   color: #ffffff;
   background: #000000;
   border: 2px solid #000000;
@@ -266,8 +268,8 @@ li {
 }
 .singleProductImg {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  width: 640px;
-  height: 480px;
+  max-width: 640px;
+  max-height: 580px;
 }
 
 .singleProductName {
@@ -293,31 +295,7 @@ li {
   font-size: 18px;
   line-height: 24px;
 }
-.errorModal {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  color: rgba(255, 0, 0, 0.75);
-  display: flex;
-  justify-content: flex-start;
-  width: 700px;
-  height: 150px;
-  hyphens: auto;
-  background-color: #ffffff;
-  border: 2px solid rgb(226, 154, 154);
-  font-size: 20px;
-}
-.errorClose {
-  position: relative;
-  left: 93%;
-  bottom: 40%;
-  font-size: 50px;
-  color: #fc0b0b;
-  opacity: 0.7;
-  font-weight: 700;
-  border: none;
-  background-color: transparent;
-}
+
 .products {
   margin-top: 5%;
   display: grid;
@@ -328,7 +306,7 @@ li {
 .productImg {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   width: 350px;
-  height: 260px;
+  height: 360px;
 }
 .productGrid {
   display: grid;
@@ -358,4 +336,40 @@ li {
 }
 .productBtn {
   grid-area: btn;
+}
+.table tbody td {
+  max-width: 500px;
+  padding: 15px;
+  font-size: 24px;
+  line-height: 20px;
+  color: #000000;
+  border-top: 1px solid #000000;
+}
+.tableButton {
+  margin: 10px 0;
+  font-family: "Wensley";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 120%;
+  letter-spacing: -0.04em;
+  color: #000000;
+  opacity: 0.8;
+  min-width: 100px;
+  padding: 8px;
+  border: 2px solid #afacac;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 20px;
+  text-align: center;
+  transition: 0.5s;
+}
+.tableButton:hover {
+  cursor: pointer;
+  color: #ffffff;
+  background: #000000;
+  border: 2px solid #000000;
+  opacity: 0.3;
+}
+.tableButton:active {
+  opacity: 1;
 }
