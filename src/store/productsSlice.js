@@ -1,30 +1,30 @@
-import {
-  createAsyncThunk,
-  createSlice,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import useHttp from "../services/useHttp";
 
-const initialState ={
+const initialState = {
   products: [],
   productsStatus: "idle",
-  httpLimit: 4
+  httpLimit: 4,
 };
 
-export const fetchProducts = createAsyncThunk("products/fetchProducts", (limit) => {
-  const { request } = useHttp();
-  return request(`https://fakestoreapi.com/products?limit=${limit}`);
-});
+export const fetchProducts = createAsyncThunk(
+  "products/fetchProducts",
+  (limit) => {
+    const { request } = useHttp();
+    return request(`https://fakestoreapi.com/products?limit=${limit}`);
+  }
+);
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    clearError(state){
-      state.productsStatus = ""
+    clearError(state) {
+      state.productsStatus = "";
     },
-    increaseHttpLimit(state){
-      state.httpLimit += 4; 
-    }
+    increaseHttpLimit(state) {
+      state.httpLimit += 4;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -42,11 +42,5 @@ const productsSlice = createSlice({
 });
 
 const { reducer, actions } = productsSlice;
-export const {clearError, increaseHttpLimit} = actions
+export const { clearError, increaseHttpLimit } = actions;
 export default reducer;
-
-// export const { selectAll, selectById } = productsAdapter.getSelectors(
-//   (state) => state.products
-// );
-
-// export const {selectById} = productsAdapter.getSelectors((state) => state.products)

@@ -5,13 +5,23 @@ import styles from "./pages.module.css";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
-  const { totalCount, totalPrice } = useSelector((state) => state.cart);
+  const { cartProducts } = useSelector((state) => state.cart);
   const { loginStatus } = useSelector((state) => state.login);
 
+  const totalCount = cartProducts.reduce((sum, product) => {
+    return product.count + sum;
+  }, 0);
+
+  const totalPrice = cartProducts
+    .reduce((sum, product) => {
+      return +product.price * +product.count + sum;
+    }, 0)
+    .toFixed(2);
+
   const onClearCart = () => {
-    console.log("clear");
     dispatch(clearCart());
   };
+
   if (!loginStatus) {
     return <h1>Сначала вам нужно залогиниться</h1>;
   }
